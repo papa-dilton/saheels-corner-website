@@ -1,0 +1,231 @@
+/*Imports Dosis Extrabold, Kalam, and Montserrat to stylesheet*/
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
+/*removes margin and padding to prevent bad spacing between elements*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/*makes sure screen is desktop*/
+@media screen and (min-width: 669px) {
+
+    /*builds main grid for all elements*/
+    .grid {
+        background-image: 'timeline2.png';
+        display: grid;
+        grid-template-columns: 100vw;
+        grid-template-rows: 40px 525px 100px auto 100px auto 100px auto 10px;
+        grid-template-areas:
+        "navigation"
+        "header"
+        "intro"
+        "introWrd"
+        "pricing"
+        "pricingWrd"
+        "about"
+        "aboutWrd"
+        "footer";
+        grid-gap: 10px;
+    }
+    /*builds grid for navigation bar*/
+    .navigation {
+        grid-area: navigation;
+        height: 50px;
+        width: 100vw;
+        background-color: #00b4ff;
+        z-index: 1000;
+        position: fixed;
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        "logoTitle topbarLinks";
+    }
+        /*makes 'Saheel's corner' in top left.*/
+        .logoTitle{
+            grid-area: logoTitle;
+            font-family: 'Dosis', Helvetica, sans-serif;
+            color: #ffffff;
+            font-size: 36px;
+            text-align: left;
+            padding-left: 20px;
+        }
+        /*grid for 'Home', 'portfolio', 'contact me'*/
+        .topbarLinks {
+            grid-area: topbarLinks;
+            font-family: 'Dosis', Helvetica, sans-serif;
+            color: #ffffff;
+            font-size: 36px;
+            text-align: left;
+            display: grid;
+            grid-template-columns: auto auto auto 50px;
+            grid-template-rows: 1fr;
+            grid-gap: 20px;
+            grid-template-areas:
+            "homeBtn portfolioBtn contactBtn .";
+            
+        }
+    .header {
+        grid-area: header;
+        display: grid;
+        grid-template-areas: "headerArea";
+        margin-bottom: 100px;
+    }
+        #bckgrd {
+            grid-area: headerArea;
+            width: 100vw;
+            filter: grayscale(80%) blur(3px);
+            transform: rotate(90);
+            z-index: 700;  
+        }
+        .headerTitle {
+            grid-area: headerArea;
+            margin-left: 100px;
+            font-family: 'Dosis', Helvetica, sans-serif;
+            text-align: left;
+            color: #ffffff;
+            font-size: 4vw;
+            z-index: 800;
+            animation: fadein 4s;
+            display: grid;
+            gap: 0px;
+            grid-template-columns: 200px 1fr 200px;
+            grid-template-rows: 1fr 10fr;
+            grid-template-areas: 
+            "hiGrid hiGrid ."
+            ". cornerGrid cornerGrid";
+        }
+            .hiGrid {
+                grid-area: hiGrid;
+            }
+            .cornerGrid {
+                grid-area: cornerGrid;
+            }/*
+        .defaultHeaderTitle {
+            grid-area: headerArea;
+            font-size: 48pt;
+            text-align: center;
+            font-family: 'Dosis', Helvetica, sans-serif;
+            color: #ffffff;
+        }*/
+    /*the subtitle for the 'intro' section*/
+    .intro {
+        grid-area: intro;
+        text-align: left;
+        font-family: 'Kalam', cursive;
+        color: #ed4245;
+        font-size: 36pt;
+        margin-left: 15vw;
+    }
+    .introWrd {
+        grid-area: introWrd;
+        margin-right: 15vw;
+        color: #ffffff;
+        background-color: #00b4ff;
+        font-family: 'Montserrat', Helvetica, sans-serif;
+        font-size: 14pt;
+        padding: 15px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+    .pricing {
+        grid-area: pricing;
+        text-align: right;
+        font-family: 'Kalam', cursive;
+        color: #ed4245;
+        font-size: 36pt;
+        margin-right: 40vw;
+    }
+    .pricingWrd {
+        grid-area: pricingWrd;
+        margin-left: 15vw;
+        color: #ffffff;
+        background-color: #ed4245;
+        font-family: 'Montserrat', Helvetica, sans-serif;
+        font-size: 14pt;
+        padding: 15px;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+    }
+    .about {
+        grid-area: about;
+        text-align: left;
+        font-family: 'Kalam', cursive;
+        color: #ed4245;
+        font-size: 36pt;
+        margin-left: 15vw;
+    }
+    .aboutWrd {
+        grid-area: aboutWrd;
+        margin-right: 15vw;
+        color: #ffffff;
+        background-color: #515151;
+        font-family: 'Montserrat', Helvetica, sans-serif;
+        font-size: 14pt;
+        padding: 15px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+    .footer {
+        grid-area: footer;
+        background-color: #23273a;
+        padding-top: 30px;
+        padding-bottom: 50px;
+        margin-top: 20px;
+        margin-bottom: 0px;
+        color: #ffffff;
+        font-family: 'Montserrat', Helvetica, sans-serif;
+        font-size: 10pt;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+        "topFooter"
+        "bottomFooter";
+    }
+        .topFooter {
+            grid-area: topFooter;
+            display: grid;
+            grid-template-columns: 1fr auto auto auto auto 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas: ". contMe legal privacyPolicy cookie .";
+            grid-gap: 25px;
+        }
+            .contMe {
+                grid-area: contMe;
+            }
+            .legal {
+                grid-area: legal;
+            }
+            .privacyPolicy {
+                grid-area: privacyPolicy;
+            }
+            .cookie {
+                grid-area: cookie;
+            }
+        .bottomFooter {
+            grid-area: bottomFooter;
+            padding-top: 20px;
+            padding-bottom: 0px;
+        }
+        .footerLinks {
+            text-decoration: none;
+            color:#ffffff;
+        }
+            .footerLinks:hover {
+                text-decoration: underline;
+            }
+}
